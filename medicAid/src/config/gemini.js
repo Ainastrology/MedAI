@@ -4,93 +4,113 @@
 //  *
 //  * $ npm install @google/generative-ai
 //  */
-
-// import {
-//     GoogleGenerativeAI,
-//     HarmCategory,
-//     HarmBlockThreshold,
-//   } from "@google/generative-ai" ;
+// import { GoogleAIFileManager } from "@google/generative-ai/server";
+import {
+    GoogleGenerativeAI,
+    HarmCategory,
+    HarmBlockThreshold,
+  } from "@google/generative-ai" ;
   
-//   const apiKey = "AIzaSyAA5vZrsMEupj876KPJ3MJH2ynhJULEGLs";
-//   const genAI = new GoogleGenerativeAI(apiKey);
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  const genAI = new GoogleGenerativeAI(apiKey);
+  // const fileManager = new GoogleAIFileManager(apiKey);
+
+  // async function uploadToGemini(path, mimeType) {                   //Upload Image
+  //   const uploadResult = await fileManager.uploadFile(path, {
+  //     mimeType,
+  //     displayName: path,
+  //   });
+  //   const file = uploadResult.file;
+  //   console.log(`Uploaded file ${file.displayName} as: ${file.name}`);
+  //   return file;
+  // }
   
-//   const model = genAI.getGenerativeModel({
-//     model: "gemini-1.5-flash",
-//   });
+  const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash",
+  });
+
   
-//   system_prompt = `
-//         As a highly skilled medical practitioner specializing in image analysis, you are tasked with examining the medical images for a renowned hospital. Your expertise is crucial in identifying any anomalies, diseases, or health issues that may be present in the images.
+  const system_prompt = ` 
+         As an AI specialized in medical and health-related information, your task is to analyze and respond to both text and image inputs related to medical health.
 
-//         Your responsibilities include:
-//         1. Detailed Analysis: Thoroughly analyze each image, focusing on identifying any abnormal findings.
-//         2. Findings Reports: Document all observed anomalies or signs of disease. Clearly articulate these findings in a structured format.
-//         3. Recommendations and Next Steps: Based on your analysis, suggest potential next steps, including further tests or treatments as applicable.
-//         4. Treatment Suggestions: If appropriate, recommend possible treatment options or interventions.
+        Your responsibilities include:
+        1. Text Analysis: When provided with a text input, generate a clear, concise, and medically accurate response. Focus on identifying symptoms, conditions, treatments, or relevant health information.
+        2. Image Analysis: When provided with an image, analyze it within your trained capacity. Identify any visible medical issues or anomalies and provide an appropriate response or recommendation.
+        3. Recommendations and Next Steps: Based on your analysis of the text or image, suggest potential next steps, such as further tests, treatments, or consulting a healthcare professional.
+        4. Empathy and Support: Always respond with empathy, considering the user's emotional state and the sensitive nature of health-related information.
 
-//         Important Notes:
-//         1. Scope of Response: Only respond if the image pertains to human health issues.
-//         2. Clarity of Image: In cases where the image quality impedes clear analysis, note that certain aspects are 'Unable to be determined based on the provided image.'
-//         3. Disclaimer: Accompany your analysis with the disclaimer: "Consult with a Doctor before making any decisions."
+        Important Notes:
+        1. Scope of Response: Limit your responses to medical health, wellness, and healthcare-related topics. Do not engage in non-medical discussions.
+        2. Image Clarity: If an image is unclear or insufficient for analysis, note that certain aspects are 'Unable to be determined based on the provided image' and recommend professional evaluation.
+        3. Ethical Considerations: Respect user privacy, avoid providing harmful advice, and maintain confidentiality in all responses.
+        4. Disclaimer: Accompany all responses with the disclaimer: "This information is not a substitute for professional medical advice. Please consult a healthcare provider for any medical concerns."
 
-//         Your insights are invaluable in guiding clinical decisions. Please proceed with the analysis, adhering to the structured approach outlined above.
+        Your role is to provide reliable, empathetic, and medically sound guidance based on the text or image provided, while prioritizing user safety and ethical considerations.
+    `
 
-//         Please note that this is an automated system and may not be 100% accurate. Please review the findings and recommendations carefully.
-//     `
 
-//   const generationConfig = {
-//     temperature: 1,
-//     topP: 0.95,
-//     topK: 64,
-//     maxOutputTokens: 8192,
-//     responseMimeType: "text/plain",
-//   };
-
-//   const safetySettings = [
-//     {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
-//     {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
-//     {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
-//     {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
-//     ];
+      // // TODO Make these files available on the local file system
+      // // You may need to update the file paths
+      // const files = [
+      //   await uploadToGemini("image_animal2.jpeg", "image/jpeg"),
+      // ];
   
-//   async function run(prompt) {
-//     const chatSession = model.startChat({
-//       generationConfig,
-//       safetySettings,
-//       history: [
-//       ],
-//     });
+  const result = await model.generateContent({
+    contents: [
+      {
+        role: 'user',
+        parts: [
+          // {
+          //   fileData: {
+          //     mimeType: files[0].mimeType,
+          //     fileUri: files[0].uri,
+          //   },
+          // },
+          {
+            text: system_prompt
+          },
+        ],
+      }
+    ],
+    generationConfig: {
+      // maxOutputTokens: 1000,
+      // temperature: 0.1,
+      temperature: 1,
+      topP: 0.95,
+      topK: 64,
+      maxOutputTokens: 8192,
+      responseMimeType: "text/plain",
+    },
+  });
+  // const generationConfig = {
+  //   temperature: 1,
+  //   topP: 0.95,
+  //   topK: 64,
+  //   maxOutputTokens: 8192,
+  //   responseMimeType: "text/plain",
+  // };
+
+  const safetySettings = [
+    {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
+    {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
+    {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
+    {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_MEDIUM_AND_ABOVE"},
+    ];
   
-//     const result = await chatSession.sendMessage(prompt);
-//     const response = result.response;
-//     console.log(response.text());
-//   }
+  async function run(prompt) {
+    const chatSession = model.startChat({
+      result,
+      safetySettings,
+      history: [
+      ],
+    });
   
-//   export default run;
+    // result = await chatSession.sendMessage(prompt);
+    const response = result.response;
+    console.log(response.text());
+    return response.text();
+  }
+  
+  export default run;
 
 
-
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
-const apiKey = "AIzaSyAA5vZrsMEupj876KPJ3MJH2ynhJULEGLs";
-const genAI = new GoogleGenerativeAI(apiKey);
-
-const model = genAI.getGenerativeModel({
-  model: "gemini-1.5-flash",
-});
-
-const generationConfig = {
-  temperature: 1,
-  topP: 0.95,
-  topK: 64,
-  maxOutputTokens: 8192,
-  responseMimeType: "text/plain",
-};
-
-const safetySettings = [
-  { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
-  { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
-  { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
-  { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
-];
-
-export { model, generationConfig, safetySettings };
