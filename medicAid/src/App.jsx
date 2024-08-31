@@ -1,13 +1,18 @@
 import React from 'react'
-import Sidebar from './components/MedAI/SideBar/Sidebar'
-import Main from './components/MedAI/Main/Main'
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import MedAI from './components/MedAI/MedAI';
 
 const App = () => {
   return (
-    <>
-      <Sidebar />
-      <Main />
-    </>
+    <BrowserRouter>
+    
+      <Routes>
+    
+        <Route path='medicai' element={<MedAI/>}/>
+        
+      </Routes>
+    
+    </BrowserRouter>
   )
 }
 

@@ -26,20 +26,16 @@ const Main = () => {
                     </div>
                     <div className="cards">
                         <div className="card">
-                            <p onClick={()=>onSent()}>What should I do if I'm experiencing migraine?</p>
+                            <p onClick={()=>onSent()} > What features can MedicAid AI provide you with ?</p>
                             <img src={assets.question_icon} alt="" />
                         </div>
                         <div className="card">
-                            <p>Can you explain the possible side effects of aspirin?</p>
+                            <p onClick={()=>onSent()} >How MedicAid AI will generate response against user's input?</p>
                             <img src={assets.code_icon} alt="" />
                         </div>
                         <div className="card">
-                            <p>What lifestyle changes can help manage my good health?</p>
+                            <p onClick={()=>onSent()} >How can MedicAid AI help you manage your good health?</p>
                             <img src={assets.bulb_icon} alt="" />
-                        </div>
-                        <div className="card">
-                            <p>When should I seek immediate medical attention for constant migraine attacks?</p>
-                            <img src={assets.compass_icon} alt="" />
                         </div>
                     </div>
                 </>
