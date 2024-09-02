@@ -1,6 +1,8 @@
 .main{
-    flex: 1;
-    min-height: 100vh;
+    flex: 3500;
+    margin-top: 50px;
+    /* display: flex; */
+    min-height: 90vh;
     padding-bottom: 15vh;
     position: relative;
     background-color: #8df0ec

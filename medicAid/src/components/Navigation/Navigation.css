@@ -1,0 +1,56 @@
+.navbar{
+    color: rgb(82, 121, 121);
+    
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    
+}
+
+.logo-icon{
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: rgba(28, 17, 41, 0.88);
+}
+
+.logo-icon img{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.menu-bar{
+    height: 91vh;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 1rem;
+    position: relative;
+    flex: 1;
+}
+
+.toggle-theme-btn {
+    position: absolute;
+    bottom: 30px; /* Adjust this to control the vertical position */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    width: 100%; /* Ensure it aligns with the sidebar width */
+    padding: 10px 0;
+}
+
+.toggle {
+    margin-left: 15px;
+}

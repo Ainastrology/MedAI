@@ -1,7 +1,8 @@
 import React, {useContext, useState} from 'react'
 import './Sidebar.css'
 import { assets } from '../../../assets/assets'
-import { Context } from '../../../Context/context'
+// import { Context } from '../../../Context/context'
+import Home from '../../Home/Home'
 
 const Sidebar = () => {
     const [extended, setExtended] = useState(false)
@@ -10,6 +11,7 @@ const Sidebar = () => {
   return (
     <div className='sidebar'>
         <div className="top">
+            <img onClick={Home} className='menu medIcon' src={assets.medicAid_icon} alt=""/>
             <img onClick={() => setExtended(prev => !prev)} className='menu' src={assets.menu_icon} alt="" />
            
         </div>

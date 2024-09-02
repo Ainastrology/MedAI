@@ -18,6 +18,13 @@
     cursor: pointer;
 }
 
+.sidebar .medIcon{
+    margin-bottom: 30px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
 .sidebar .new-chat{
     margin-top: 50px;
     display: inline-flex;

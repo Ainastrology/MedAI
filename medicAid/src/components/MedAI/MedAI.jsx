@@ -1,11 +1,11 @@
 import React from 'react'
-import Sidebar from './SideBar/Sidebar'
 import Main from './Main/Main'
+import Navigation from '../Navigation/Navigation'
 
 const MedAI = () => {
   return (
     <>
-      <Sidebar />
+      <Navigation/>
       <Main />
     </>
   )
