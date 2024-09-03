@@ -14,7 +14,7 @@ const MenuList = ({ darkTheme }) => {
         </Menu.Item>
 
         <Menu.Item key="medicaid-pharma" icon={<ProductOutlined/>}>
-            <Link to="/Pharmacy">MedicAid Pharma</Link>
+            <Link to="/medicAidPharma">MedicAid Pharma</Link>
         </Menu.Item>
 
         <Menu.Item key="medicaid-ai" icon={<OpenAIOutlined/>}>

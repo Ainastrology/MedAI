@@ -37,6 +37,10 @@ function Pharma() {
           <p onClick={handleTextClickDawai}><h3>Dawai.pk</h3> <br/>Get The Extra Care You Need With Dawai Home Services</p>
           <img src={assets.bulb_icon} alt="Bulb Icon" />
         </div>
+        <div className="card">
+          <p onClick={handleTextClickDawai}><h3>Dawai.pk</h3> <br/>Get The Extra Care You Need With Dawai Home Services</p>
+          <img src={assets.bulb_icon} alt="Bulb Icon" />
+        </div>
       </div>
     </div>
   );

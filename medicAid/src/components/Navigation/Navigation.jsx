@@ -5,6 +5,7 @@ import Logo from './Logo';
 import './Navigation.css'
 import MenuList from './MenuList';
 import ToggleButton from './ToggleButton';
+import { assets } from '../../assets/assets';
 
 
 
@@ -30,8 +31,13 @@ const Navigation = () => {
             <ToggleButton darkTheme={darkTheme} toggleTheme={toggleTheme}/>
         </Sider>
         <Layout>
-            <Header style={{padding: 0, background: colorBgContainer }}>
+            <Header style={{padding: 0, background: colorBgContainer }} className='header'>
                 <Button type='text' className='toggle' onClick={() => setCollapsed(!collapsed)} icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>} />
+                <div className="header-title">
+                    <p>MedicAid🩺</p>
+                    {/* <p>From Query to Cure, We make Health Secure</p> */}
+                </div>
+                
             </Header>
         </Layout>
     </Layout>

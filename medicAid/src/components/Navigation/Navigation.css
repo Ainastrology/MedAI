@@ -51,6 +51,27 @@
     padding: 10px 0;
 }
 
+.header{
+    display: flex;
+    justify-content: space-between;
+    /* /* background-color: #00CEC8;  */
+}
+
+.header-title{
+    display: flex;  
+    align-items:center;
+    justify-content: space-between;
+    font-size: 22px;
+    padding: 20px;
+    color: #585858;
+}
+
+.header-title p{
+    margin-top: 29px;
+}
+
 .toggle {
     margin-left: 15px;
 }
+
+
