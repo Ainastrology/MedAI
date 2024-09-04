@@ -5,6 +5,10 @@ import MedicAidAI from './pages/MedicAidAI';
 import MedicAidPharmacy from './pages/MedicAidPharmacy';
 // import LogIn from './pages/Login';
 import LogInPage from './pages/LoginPage';
+import './App.css'
+import { ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+import Home from './pages/Home';
 
 const App = () => {
   
@@ -17,9 +21,11 @@ const App = () => {
         <Route path='medicAidPharma' element={<MedicAidPharmacy/>}/>
         <Route path='login' element={<LogInPage/>}/>
         <Route path='/' element={<Navigation/>}/>
+        <Route path='home' element={<Home/>}/>
         
         
       </Routes>
+      <ToastContainer position="top-center" />
     
     </BrowserRouter>
   )

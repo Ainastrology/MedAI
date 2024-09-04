@@ -45,6 +45,14 @@ const Login = () => {
                     <label htmlFor="password">Password</label>
                     <input type="password" id="password" placeholder="Enter your password" required />
                 </div>
+                <div className="form-group">
+                    <label htmlFor="role">Role</label>
+                    <select id='dropdown' required >
+                        <option value="Select">Select</option>
+                        <option value="Patient">Patient</option>
+                        <option value="Doctor">Doctor</option>
+                    </select>
+                </div>
                 
                 <button type="submit" className="login-button">Login</button>
                 <div className="login-footer">

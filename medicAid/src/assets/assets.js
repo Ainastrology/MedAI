@@ -54,6 +54,19 @@ import illustrationBg from './illustrationBg.png'
 import Testimonial_user from './Testimonial_user.png'
 import Title from './Title.png'
 import Illustration3 from './Illustration3.png'
+import CardioDepart from './CardioDepart.png'
+import DermaDepart from './DermaDepart.png'
+import EntDepart from './EntDepart.png'
+import NeuroDepart from './NeuroDepart.png'
+import OncoDepart from './OncoDepart.png'
+import OrthoDepart from './OrthoDepart.png'
+import PediaDepart from './PediaDepart.png'
+import RadioDepart from './RadioDepart.png'
+import TherapyDepart from './TherapyDepart.png'
+import heroLogo from './heroLogo.png'
+import HeroIcon from './HeroIcon.png'
+import About from './About.png'
+
 
 export const assets = {
     history_icon,
@@ -89,5 +102,7 @@ export const assets = {
     illustrationBg, 
     Illustration3, 
     Testimonial_user, 
-    Title
+    Title,
+    CardioDepart, DermaDepart, EntDepart, NeuroDepart, OncoDepart, OrthoDepart, PediaDepart, RadioDepart, TherapyDepart,
+    heroLogo, HeroIcon, About
 }
