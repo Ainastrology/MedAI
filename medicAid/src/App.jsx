@@ -3,7 +3,8 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Navigation from './components/Navigation/Navigation';
 import MedicAidAI from './pages/MedicAidAI';
 import MedicAidPharmacy from './pages/MedicAidPharmacy';
-import LogIn from './pages/Login';
+// import LogIn from './pages/Login';
+import LogInPage from './pages/LoginPage';
 
 const App = () => {
   
@@ -14,7 +15,7 @@ const App = () => {
     
         <Route path='medicAidAI' element={<MedicAidAI/>}/>
         <Route path='medicAidPharma' element={<MedicAidPharmacy/>}/>
-        <Route path='login' element={<LogIn/>}/>
+        <Route path='login' element={<LogInPage/>}/>
         <Route path='/' element={<Navigation/>}/>
         
         
