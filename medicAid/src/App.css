@@ -1,4 +1,4 @@
-/* /* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -63,7 +63,7 @@ h6 {
     font-size: 30px;
     font-weight: 900;
   }
-}*/
+}*
 .container {
   padding: 0 100px;
 }
@@ -251,7 +251,7 @@ h6 {
     font-size: 20px;
     padding: 10px;
   }
-} */
+} 
 .biography {
   display: flex;
   gap: 50px;
@@ -381,7 +381,7 @@ footer .content div:last-child div svg {
     display: flex;
     flex-direction: column;
   }
-}*/
+}
 
 .departments {
   padding-top: 30px;
@@ -586,4 +586,4 @@ input[type="time"]:before {
 }
 footer .logo-img{
   width: 100%;
-} */
+}

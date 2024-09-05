@@ -1,13 +1,12 @@
 import React from 'react'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Navigation from './components/Navigation/Navigation';
 import MedicAidAI from './pages/MedicAidAI';
 import MedicAidPharmacy from './pages/MedicAidPharmacy';
-// import LogIn from './pages/Login';
 import LogInPage from './pages/LoginPage';
-import './App.css'
 import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/Home';
 
 const App = () => {

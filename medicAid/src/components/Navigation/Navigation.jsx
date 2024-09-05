@@ -34,8 +34,7 @@ const Navigation = () => {
             <Header style={{padding: 0, background: colorBgContainer }} className='header'>
                 <Button type='text' className='toggle' onClick={() => setCollapsed(!collapsed)} icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>} />
                 <div className="header-title">
-                    <p>MedicAid🩺</p>
-                    {/* <p>From Query to Cure, We make Health Secure</p> */}
+                    <p>MedicAid</p>
                 </div>
                 
             </Header>

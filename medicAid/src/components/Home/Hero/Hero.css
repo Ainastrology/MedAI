@@ -1,0 +1,46 @@
+
+.container{
+    margin-top:50px;
+    /* margin-left: 70px; */
+    padding: 50px;
+    /* display: flex; */
+    
+}
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+}
+
+.banner h1{
+    font-size: 36px;
+    font-family: Outfit;
+    font-weight: 500;
+    width: 660px;
+    margin-bottom: 30px;
+}
+
+.banner p{
+    font-size: 20px;
+    line-height: 1.8rem;
+    width: 1020px;
+}
+
+.consult-btn {
+    margin-top: 80px;
+    margin-left: 80px;
+    padding: 0.75rem;
+    background-color: #4ad4d0; /* Blue button */
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    height: 60px;
+    width: 170px;
+    transition: background-color 0.3s ease;
+}
+
+.consult-btn:hover{
+    background-color: #14dad3;
+}

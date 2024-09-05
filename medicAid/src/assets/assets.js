@@ -66,6 +66,10 @@ import TherapyDepart from './TherapyDepart.png'
 import heroLogo from './heroLogo.png'
 import HeroIcon from './HeroIcon.png'
 import About from './About.png'
+import Vector from './Vector.png'
+import Blog1_bp from './Blog1_bp.png'
+import Blog2_reduceMentalHealth from './Blog2_reduceMentalHealth.png'
+import Blog3_Hydration from './Blog3_Hydration.png'
 
 
 export const assets = {
@@ -104,5 +108,6 @@ export const assets = {
     Testimonial_user, 
     Title,
     CardioDepart, DermaDepart, EntDepart, NeuroDepart, OncoDepart, OrthoDepart, PediaDepart, RadioDepart, TherapyDepart,
-    heroLogo, HeroIcon, About
+    heroLogo, HeroIcon, About, Vector,
+    Blog1_bp, Blog2_reduceMentalHealth, Blog3_Hydration
 }
