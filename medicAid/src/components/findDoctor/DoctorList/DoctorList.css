@@ -1,0 +1,16 @@
+.doctor-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* src/App.css */
+  .app-container {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .app-header h1 {
+    color: #2c3e50;
+  }

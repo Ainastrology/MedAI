@@ -7,7 +7,8 @@ import MedicAidPharmacy from './pages/MedicAidPharmacy';
 import LogInPage from './pages/LoginPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Home from './pages/Home';
+import HomePage from './pages/HomePage';
+import FindDoctor from './pages/FindDoctor';
 
 const App = () => {
   
@@ -20,7 +21,8 @@ const App = () => {
         <Route path='medicAidPharma' element={<MedicAidPharmacy/>}/>
         <Route path='login' element={<LogInPage/>}/>
         <Route path='/' element={<Navigation/>}/>
-        <Route path='home' element={<Home/>}/>
+        <Route path='home' element={<HomePage/>}/>
+        <Route path='doctors' element={<FindDoctor/>}/>
         
         
       </Routes>

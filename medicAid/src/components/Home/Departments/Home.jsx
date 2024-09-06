@@ -3,10 +3,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import './Department.css';
+import './Home.css';
 import { assets } from '../../../assets/assets';
 
-const Department = () => {
+const Home = () => {
   // State management inside the functional component
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -14,11 +14,13 @@ const Department = () => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleMessage = async (e) => {
+  const handleMessage = async (e) => 
+  {
     e.preventDefault();
     try 
     {
-      const res = await axios.post(
+      await axios
+      .post(
         "http://localhost:4000/api/v1/message/send",
         { firstName, lastName, email, phone, message },
         {
@@ -36,9 +38,37 @@ const Department = () => {
       });
       
     } catch (error) {
-      toast.error(error.response?.data?.message || "An error occurred");
+      toast.error(error.response.data.message || "An error occurred");
     }
   };
+
+
+  // const handleMessage = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const resp = await axios.post(
+  //       "http://localhost:4000/api/v1/message/send",
+  //       { firstName, lastName, email, phone, message },
+  //       {
+  //         withCredentials: true,
+  //         headers: { "Content-Type": "application/json" },
+  //       }
+  //     );
+      
+  //     // Handling the response directly
+  //     toast.success(resp.data.message);
+      
+  //     // Resetting form values after success
+  //     setFirstName("");
+  //     setLastName("");
+  //     setEmail("");
+  //     setPhone("");
+  //     setMessage("");
+  
+  //   } catch (error) {
+  //     toast.error(error.response?.data?.message || "An error occurred");
+  //   }
+  // };
 
   return (
     <div className="container">
@@ -226,7 +256,7 @@ const Department = () => {
                 required
               />
               <input
-                type="text"
+                type="number"
                 placeholder="Mobile Number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -263,4 +293,4 @@ const Department = () => {
   );
 };
 
-export default Department;
+export default Home;
