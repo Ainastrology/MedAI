@@ -1,5 +1,3 @@
-
-
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
@@ -19,7 +17,7 @@ const Home = () => {
     e.preventDefault();
     try 
     {
-      await axios
+      const res = await axios
       .post(
         "http://localhost:4000/api/v1/message/send",
         { firstName, lastName, email, phone, message },
@@ -42,34 +40,6 @@ const Home = () => {
     }
   };
 
-
-  // const handleMessage = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const resp = await axios.post(
-  //       "http://localhost:4000/api/v1/message/send",
-  //       { firstName, lastName, email, phone, message },
-  //       {
-  //         withCredentials: true,
-  //         headers: { "Content-Type": "application/json" },
-  //       }
-  //     );
-      
-  //     // Handling the response directly
-  //     toast.success(resp.data.message);
-      
-  //     // Resetting form values after success
-  //     setFirstName("");
-  //     setLastName("");
-  //     setEmail("");
-  //     setPhone("");
-  //     setMessage("");
-  
-  //   } catch (error) {
-  //     toast.error(error.response?.data?.message || "An error occurred");
-  //   }
-  // };
-
   return (
     <div className="container">
       <header className="header">
@@ -87,7 +57,7 @@ const Home = () => {
         </nav>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section */} 
       <section className="hero" id="home">
         <div className="hero-container">
           <div className="hero-content">
