@@ -10,7 +10,7 @@ const MenuList = ({ darkTheme }) => {
   return (
     <Menu theme={darkTheme ? 'dark' : 'light'} className='menu-bar' >     {/* mode='inline' */}
         <Menu.Item key="home" icon={<HomeOutlined/>}>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
         </Menu.Item>
 
         <Menu.Item key="medicaid-pharma" icon={<ProductOutlined/>}>

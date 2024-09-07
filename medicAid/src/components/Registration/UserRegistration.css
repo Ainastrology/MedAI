@@ -1,0 +1,142 @@
+
+.whole-signup-container{
+    display: flex;
+    justify-content: center;
+    width: 200vh;
+    height: 100vh;
+    background-color: #d5eeec;
+}
+.main-signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    min-height: 90vh;
+    min-width: 80vh;
+    padding: 10px;
+    border-radius: 3%;
+    background: linear-gradient(to bottom, #a6eee2, #e6e6e6);
+}
+
+.signup-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 90%;
+}
+
+.signup-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.signup-subtitle {
+    font-size: 1rem;
+    color: #777;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.signup-form {
+    display: flex;
+   flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Stack label and input vertically */
+    gap: 5px; /* Adjust the gap between label and input */
+    width: 100%; /* Ensure the form group takes the full width */
+}
+
+.inline {
+    display: flex; /* Display first name and last name inputs in one line */
+    gap: 40px; /* Adjust the gap between the two fields */
+    flex-direction: row;
+}
+
+.inline .form-group {
+    flex: 1; /* Make each form group (label + input) take up equal space */
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #5cb85c;
+    outline: none;
+}
+
+.signup-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-button {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    width: 190px;
+    color: #fff;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-button:hover {
+    background-color: #4cae4c;
+}
+
+.signup-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.login-link {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.login-link a {
+    color: #5cb85c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+    color: #4cae4c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .signup-container {
+        padding: 20px;
+    }
+
+    .signup-title {
+        font-size: 1.8rem;
+    }
+
+    .form-group {
+        gap: 8px;
+    }
+}

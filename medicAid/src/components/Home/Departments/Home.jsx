@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import './Home.css';
 import { assets } from '../../../assets/assets';
+import { Link } from "react-router-dom";
 
 const Home = () => {
   // State management inside the functional component
@@ -17,7 +18,7 @@ const Home = () => {
     e.preventDefault();
     try 
     {
-      const res = await axios
+      await axios
       .post(
         "http://localhost:4000/api/v1/message/send",
         { firstName, lastName, email, phone, message },
@@ -53,7 +54,7 @@ const Home = () => {
             <li><a href="#blogs">Blogs</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-          <button type="submit" className="nav-login-btn">Login</button>
+          <Link to="/login"><button type="submit" className="nav-login-btn" >Login</button></Link>
         </nav>
       </header>
 

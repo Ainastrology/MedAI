@@ -1,4 +1,6 @@
-import React from 'react'
+import axios from "axios";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 import './Login.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
@@ -6,6 +8,37 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import { assets } from '../../assets/assets';
 
 const Login = () => {
+
+    // State management inside the functional component
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("");
+
+  const HandleLogin = async (e) => 
+  {
+    e.preventDefault();
+    try 
+    {
+      await axios
+      .post(
+        "http://localhost:4000/api/v1/user/login",
+        { email, password, role },
+        {
+          withCredentials: true,
+          headers: { "Content-Type": "application/json" },
+        }
+      ).then(res => {
+        toast.success(res.data.message);
+        // Resetting form values after success
+        setEmail("");
+        setPassword("");
+        setRole("");
+      });
+      
+    } catch (error) {
+      toast.error(error.response.data.message || "An error occurred");
+    }
+  };
   return (
     <div className="login-page">
       <div className="left-image-container">
@@ -36,29 +69,45 @@ const Login = () => {
       <div className="login-container">
             <h1 className="login-title">Welcome Back!</h1>
             <p className="login-subtitle">Please log in to your account</p>
-            <form className="login-form">
+            <form className="login-form" onSubmit={HandleLogin}>
                 <div className="form-group">
                     <label htmlFor="email">Email Address</label>
-                    <input type="email" id="email" placeholder="Enter your email" required />
+                    <input 
+                        type="email" 
+                        // id="email" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email address" 
+                        required />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password" required />
+                    <input 
+                        type="password" 
+                        // id="password" 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Enter your password" 
+                        required />
                 </div>
                 <div className="form-group">
                     <label htmlFor="role">Role</label>
-                    <select id='dropdown' required >
+                    <select 
+                        // id='dropdown' 
+                        value={role}
+                        onChange={(e) => setRole(e.target.value)}
+                        required >
                         <option value="Select">Select</option>
                         <option value="Patient">Patient</option>
                         <option value="Doctor">Doctor</option>
                     </select>
                 </div>
                 
-                <button type="submit" className="login-button">Login</button>
+                <button type="submit" className="login-button" >Login</button>
                 <div className="login-footer">
                     <a href="/" className="forgot-password-link">Forgot Password?</a>
                     <p className="signup-link">
-                    Don't have an account? <a href="/">Sign Up</a>
+                    Don't have an account? <a href="/signup">Sign Up</a>
                     </p>
                 </div>
             </form>
