@@ -3,6 +3,14 @@ import { User } from "../models/userSchema.js";
 import ErrorHandler from "../middleware/errorMiddleware.js";
 import { generateToken } from "../utils/jwtToken.js";
 import cloudinary from "cloudinary";
+// import dotenv from "../config/config.env"
+config({path: "../config/config.env"})
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 export const patientRegister = catchAsyncError(async (req, res, next) => {
   const { firstName, lastName, email, phone, nic, dob, gender, password } =
@@ -192,9 +200,9 @@ export const addNewDoctor = catchAsyncError(async (req, res, next) => {
     return next(new ErrorHandler("File Format Not Supported!", 400));
   }
 
-  const { firstName, lastName, email, phone, nic, dob, gender, password, doctorDepartment } = req.body;
+  const { firstName, lastName, email, phone, nic, dob, gender, password, doctorDepartment, doctorLiscence } = req.body;
 
-  if (!firstName || !lastName || !email || !phone || !nic || !dob || !gender || !password || !doctorDepartment || !docAvatar) {
+  if (!firstName || !lastName || !email || !phone || !nic || !dob || !gender || !password || !doctorDepartment || !doctorLiscence || !docAvatar) {
     return next(new ErrorHandler("Please Fill Full Form!", 400));
   }
 
@@ -221,6 +229,7 @@ export const addNewDoctor = catchAsyncError(async (req, res, next) => {
     password,
     role: "Doctor",
     doctorDepartment,
+    doctorLiscence,
     docAvatar: {
       public_id: cloudinaryResponse.public_id,
       url: cloudinaryResponse.secure_url,

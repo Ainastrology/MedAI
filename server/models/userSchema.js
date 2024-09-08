@@ -55,6 +55,11 @@ const userSchema = new mongoose.Schema({
     doctorDepartment:{
         type: String
     },
+    doctorLiscence:{
+        type: String,
+        required: true,
+        minLength: [7, "Invalid Liscence Number!"],
+    },
     docAvatar:{
         public_id: String, 
         url: String

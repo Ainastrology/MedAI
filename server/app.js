@@ -9,9 +9,16 @@ import {errorMiddleware} from "./middleware/errorMiddleware.js";
 import pharmaProductRouter from "./router/pharmaProductRouter.js";
 import userRouter from "./router/userRouter.js";
 import appointmentRouter from "./router/appointmentRouter.js";
+// import cloudinary from "cloudinary";
 
 const app = express();
 config({path: "./config/config.env"})
+
+// cloudinary.config({
+//     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+//     api_key: process.env.CLOUDINARY_API_KEY,
+//     api_secret: process.env.CLOUDINARY_API_SECRET
+// });
   
 app.use( 
     cors({
