@@ -27,19 +27,19 @@ function Pharma() {
         </div>
         <div className="card">
           <p onClick={handleTextClickCHS}><h3>CHS Pharmacy</h3> <br/>Committed To Serving Health 24/7 Since 2007</p>
-          <img src={assets.code_icon} alt="Code Icon" />
+          <img src={assets.plus_icon} alt="Code Icon" />
         </div>
         <div className="card">
           <p onClick={handleTextClickMahmood}><h3>Mahmood Pharmacy</h3> <br/>We Reach You, Wherever You Are</p>
-          <img src={assets.bulb_icon} alt="Bulb Icon" />
+          <img src={assets.compass_icon} alt="Bulb Icon" />
         </div>
         <div className="card">
           <p onClick={handleTextClickDawai}><h3>Dawai.pk</h3> <br/>Get The Extra Care You Need With Dawai Home Services</p>
           <img src={assets.bulb_icon} alt="Bulb Icon" />
         </div>
         <div className="card">
-          <p onClick={handleTextClickDawai}><h3>Dawai.pk</h3> <br/>Get The Extra Care You Need With Dawai Home Services</p>
-          <img src={assets.bulb_icon} alt="Bulb Icon" />
+          <p onClick={handleTextClickDawai}><h3>Search Other Pharmacies</h3> <br/>Find the pharmacies near your location on just one click</p>
+          <img src={assets.question_icon} alt="Question Icon" />
         </div>
       </div>
     </div>
