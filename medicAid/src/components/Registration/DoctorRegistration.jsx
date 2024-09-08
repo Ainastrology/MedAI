@@ -63,7 +63,7 @@ const DoctorRegistration = () => {
                 setLastName("");
                 setEmail("");
                 setPhone("");
-                setNic("");
+                setNic("");mon
                 setDob("");
                 setGender("");
                 setPassword("");

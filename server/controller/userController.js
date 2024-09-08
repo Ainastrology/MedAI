@@ -4,13 +4,13 @@ import ErrorHandler from "../middleware/errorMiddleware.js";
 import { generateToken } from "../utils/jwtToken.js";
 import cloudinary from "cloudinary";
 // import dotenv from "../config/config.env"
-config({path: "../config/config.env"})
+// config({path: "../config/config.env"})
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
-});
+// cloudinary.config({
+//   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+//   api_key: process.env.CLOUDINARY_API_KEY,
+//   api_secret: process.env.CLOUDINARY_API_SECRET
+// });
 
 export const patientRegister = catchAsyncError(async (req, res, next) => {
   const { firstName, lastName, email, phone, nic, dob, gender, password } =
