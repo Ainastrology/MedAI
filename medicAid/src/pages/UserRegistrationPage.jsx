@@ -3,9 +3,11 @@ import UserRegistration from '../components/Registration/UserRegistration'
 
 const UserRegistrationPage = () => {
   return (
+    <>
     <div>
-        <UserRegistration />
+      <UserRegistration/>
     </div>
+    </>
   )
 }
 

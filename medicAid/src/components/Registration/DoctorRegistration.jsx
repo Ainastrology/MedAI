@@ -1,10 +1,13 @@
-import axios from 'axios';
-import React, { useState } from 'react'
-import { toast } from 'react-toastify';
+import React, {useState} from 'react'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 import './UserRegistration.css'
-// import './DoctorRegistration.jsx'
+// import './UserRegistration.jsx'
 
-const UserRegistration = () => {
+<script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript">  
+</script>
+
+const DoctorRegistration = () => {
 
     const[firstName, setFirstName] = useState("");
     const[lastName, setLastName] = useState("");
@@ -14,21 +17,47 @@ const UserRegistration = () => {
     const[dob, setDob] = useState("");
     const[gender, setGender] = useState("");
     const[password, setPassword] = useState("");
+    const [doctorDepartment, setDoctorDepartment] = useState("");
+    const [doctorLiscence, setDoctorLiscence] = useState("");
+    const [doctorAvatar, setDoctorAvatar] = useState("");
 
-    const HandlePatientSignup = async (e) => 
-    {
+    // const SubmitImage = () => {
+    //     const data = new FormData();
+    //     data.append("file", doctorAvatar);
+    //     data.append("upload_preset", "medicaid");
+    //     data.append("cloud_name", "MedicAid");
+
+    //     fetch("https://api.cloudinary.com/v1_1/MedicAid/image/upload", 
+    //         {
+    //             method:"post",
+    //             body:data
+    //         })
+    //         .then((res)=>
+    //         {
+    //             res.json();
+    //         }).then((data) => {
+    //             console.log(data);
+    //         })
+    //         .catch((err))
+    //         {
+    //             toast.err( "An error occured while uploading image");
+    //         }
+    // }
+
+    const HandleDoctorSignup = async (e) => {
         e.preventDefault();
         try 
         {
-            await axios 
-             .post(
-                "http://localhost:4000/api/v1/user/patient/register",
-                { firstName, lastName, email, phone, nic, dob, gender, password},
+            await axios
+            .post
+            ("http://localhost:4000/api/v1/user/doctor/addnew?docAvatar=",
+                {firstName, lastName, email, phone, nic, dob, gender, password, doctorDepartment, doctorLiscence, doctorAvatar},
                 {
                     withCredentials: true,
-                    headers: { "Content-Type": "application/json"}
+                    headers: { "Content-Type" : "application/json"}
                 }
-             ).then(res => {
+            ).then(res => 
+            {
                 toast.success(res.data.message);
                 setFirstName("");
                 setLastName("");
@@ -38,13 +67,19 @@ const UserRegistration = () => {
                 setDob("");
                 setGender("");
                 setPassword("");
-             });
-        } catch (error) {
-            toast.error(error.response.data.message || "An error occurred");
+                setDoctorDepartment("");
+                setDoctorLiscence("");
+                setDoctorAvatar("");
+
+            });
+        } catch (error) 
+        {
+            toast.error(error.response.data.message || "An error occured");
         }
-    }
+    };
+
   return (
-    <div className='whole-signup-container'>    
+    <div className='whole-signup-container'>
         <div className='main-signup-container' >
             <div className="signup-toggle">
                 <a href='/signup'>Patient</a>
@@ -53,7 +88,7 @@ const UserRegistration = () => {
             <div className="signup-container" >
                 <h1 className="signup-title">SignUp!</h1>
                 <p className="signup-subtitle">Create your Account and get medical facilities in your hand</p>
-                <form className="signup-form" onSubmit={HandlePatientSignup} id='patient-signup'>
+                <form className="signup-form" onSubmit={HandleDoctorSignup} id='doctor-signup'>
                     <div className="form-group inline">
                         <div className="form-group">
                             <label htmlFor="firstName">First Name</label>
@@ -143,7 +178,68 @@ const UserRegistration = () => {
                             </select>
                         </div>
                     </div>
-                    
+                    <div className='form-group inline'>
+                        <div className="form-group">
+                            <label htmlFor="doctorDepartment">Department</label>
+                            <select 
+                                // id='dropdown' 
+                                value={doctorDepartment}
+                                onChange={(e) => setDoctorDepartment(e.target.value)}
+                                required >
+                                <option value="Select">Select</option>
+                                <option value="Anesthesiology">Anesthesiology</option>
+                                <option value="Cardiology">Cardiology</option>
+                                <option value="Clinical nutrition">Clinical nutrition</option>
+                                <option value="Dentistry">Dentistry</option>
+                                <option value="Dermatologist">Dermatologist</option>
+                                <option value="Emergency Medicine">Emergency Medicine</option>
+                                <option value="Endocrinologist">Endocrinologist</option>
+                                <option value="Gastroenterologist">Gastroenterologist</option>
+                                <option value="General surgery">General surgery</option>
+                                <option value="Internal medicine">Internal medicine</option>
+                                <option value="Nephrologist">Nephrologist</option>
+                                <option value="Neurology">Neurology</option>
+                                <option value="Obstetrics and gynaecology">Obstetrics and gynaecology</option>
+                                <option value="Oncologist">Oncologist</option>
+                                <option value="Ophthalmology">Ophthalmology</option>
+                                <option value="Orthopaedist">Orthopaedist</option>
+                                <option value="Otolaryngologists">Otolaryngologists</option>
+                                <option value="Pathology">Pathology</option>
+                                <option value="Physiotherapist">Physiotherapist</option>
+                                <option value="Plastic surgery">Plastic surgery</option>
+                                <option value="Psychiatry">Psychiatry</option>
+                                <option value="Pulmonology">Pulmonology</option>
+                                <option value="Radiology">Radiology</option>
+                                <option value="Urology">Urology</option>
+                            </select>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="docLiscence">Liscence No.</label>
+                            <input 
+                                type='text'
+                                placeholder="Enter your Liscence Number"
+                                value={doctorLiscence}
+                                onChange={(e) => setDoctorLiscence(e.target.value)}
+                                required >
+                                
+                            </input>
+                        </div>
+                    </div>
+                    <div className='form-group inline'>
+                        <div className="form-group">
+                            <label htmlFor="docAvatar">Avatar</label>
+                            <input 
+                                type='file'
+                                value={doctorAvatar}
+                                onChange={(e) => setDoctorAvatar(e.target.value)}
+                                required >
+                                
+                            </input>
+                        </div>
+                        {/* <div>
+                            <button type="submit" className="upload-button" onClick={SubmitImage} >Upload</button>
+                        </div> */}
+                    </div>
                     <div className='signup-btn'> 
                         <button type="submit" className="signup-button" >SignUp</button>
                     </div>
@@ -156,8 +252,8 @@ const UserRegistration = () => {
                 </form>
             </div>
         </div>
-  </div>  
+    </div>
   )
 }
 
-export default UserRegistration
+export default DoctorRegistration

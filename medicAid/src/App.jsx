@@ -9,8 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HomePage from './pages/HomePage';
 import UserRegistrationPage from './pages/UserRegistrationPage';
-// import UserProfilePage from './pages/UserProfilePage';
-// import FindDoctor from './pages/FindDoctor';
+import DoctorRegistrationPage from './pages/DoctorRegistrationPage';
 
 const App = () => {
   
@@ -22,10 +21,10 @@ const App = () => {
         <Route path='medicAidAI' element={<MedicAidAI/>}/>
         <Route path='medicAidPharma' element={<MedicAidPharmacy/>}/>
         <Route path='login' element={<LogInPage/>}/>
-        <Route path='/' element={<Navigation/>}/>
-        <Route path='home' element={<HomePage/>}/>
+        {/* <Route path='/' element={<Navigation/>}/> */}
+        <Route path='/' element={<HomePage/>}/>
         <Route path='signup' element={<UserRegistrationPage/>}/>
-        {/* <Route path='profile' element={<UserProfilePage/>}/> */}
+        <Route path='doctorsignup' element={<DoctorRegistrationPage/>}/>
         
         
       </Routes>
