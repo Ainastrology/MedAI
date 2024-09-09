@@ -44,8 +44,8 @@ const UserRegistration = () => {
         }
     }
   return (
-    <div className='whole-signup-container'>    
-        <div className='main-signup-container' >
+    <div className='user-whole-signup-container'>    
+        <div className='user-main-signup-container' >
             <div className="signup-toggle">
                 <a href='/signup'>Patient</a>
                 <a href='/doctorsignup'>Doctor</a>

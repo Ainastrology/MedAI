@@ -2,8 +2,15 @@
 .whole-signup-container{
     display: flex;
     justify-content: center;
-    width: 200vh;
+    width: 220vh;
     height: 130vh;
+    background-color: #d5eeec;
+}
+.user-whole-signup-container{
+    display: flex;
+    justify-content: center;
+    width: 210vh;
+    height: 100vh;
     background-color: #d5eeec;
 }
 .main-signup-container {
@@ -13,6 +20,18 @@
     justify-content: center;
     margin-top: 40px;
     min-height: 90vh;
+    min-width: 80vh;
+    padding: 10px;
+    border-radius: 3%;
+    background: linear-gradient(to bottom, #a6eee2, #e6e6e6);
+}
+.user-main-signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    margin-top: 10px;
+    min-height: 70vh;
     min-width: 80vh;
     padding: 10px;
     border-radius: 3%;
@@ -71,6 +90,12 @@
     flex-direction: column; /* Stack label and input vertically */
     gap: 5px; /* Adjust the gap between label and input */
     width: 100%; /* Ensure the form group takes the full width */
+}
+
+.image {
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .inline {

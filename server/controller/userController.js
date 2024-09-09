@@ -201,6 +201,7 @@ export const addNewDoctor = catchAsyncError(async (req, res, next) => {
   }
 
   const { firstName, lastName, email, phone, nic, dob, gender, password, doctorDepartment, doctorLiscence } = req.body;
+  console.log(req.body);
 
   if (!firstName || !lastName || !email || !phone || !nic || !dob || !gender || !password || !doctorDepartment || !doctorLiscence || !docAvatar) {
     return next(new ErrorHandler("Please Fill Full Form!", 400));
@@ -213,6 +214,7 @@ export const addNewDoctor = catchAsyncError(async (req, res, next) => {
 
   const cloudinaryResponse = await cloudinary.uploader.upload(docAvatar.tempFilePath);
   // console.log("Cloud Path working correctly");
+    
   if (!cloudinaryResponse || cloudinaryResponse.error) {
     console.error("Cloudinary Error:", cloudinaryResponse.error || "Unknown Cloudinary error");
     return next(new ErrorHandler("Failed To Upload Doctor Avatar To Cloudinary", 500));

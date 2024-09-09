@@ -4,8 +4,8 @@ import { toast } from 'react-toastify'
 import './UserRegistration.css'
 // import './UserRegistration.jsx'
 
-<script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript">  
-</script>
+{/* <script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript">  
+</script> */}
 
 const DoctorRegistration = () => {
 
@@ -20,6 +20,9 @@ const DoctorRegistration = () => {
     const [doctorDepartment, setDoctorDepartment] = useState("");
     const [doctorLiscence, setDoctorLiscence] = useState("");
     const [doctorAvatar, setDoctorAvatar] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
+    console.log(imageUrl);                       
+
 
     // const SubmitImage = () => {
     //     const data = new FormData();
@@ -226,19 +229,26 @@ const DoctorRegistration = () => {
                         </div>
                     </div>
                     <div className='form-group inline'>
-                        <div className="form-group">
+                        <div className="form-group image">
                             <label htmlFor="docAvatar">Avatar</label>
                             <input 
                                 type='file'
-                                value={doctorAvatar}
-                                onChange={(e) => setDoctorAvatar(e.target.value)}
-                                required >
-                                
+                                onChange=
+                                {(e)=>
+                                    {
+                                        const cloudimage = e.target.files[0];
+                                        const a = URL.createObjectURL(cloudimage);
+                                        setImageUrl(a);
+                                        // setDoctorAvatar(a);
+                                        // // setTemp(cloudimage)
+                                        // setDoctorAvatar(cloudimage.name)
+                                    }
+                                }
+                                required > 
                             </input>
+                            <img src={doctorAvatar} width="50px" height="50px"/>
                         </div>
-                        {/* <div>
-                            <button type="submit" className="upload-button" onClick={SubmitImage} >Upload</button>
-                        </div> */}
+                        
                     </div>
                     <div className='signup-btn'> 
                         <button type="submit" className="signup-button" >SignUp</button>
