@@ -12,7 +12,7 @@ import appointmentRouter from "./router/appointmentRouter.js";
 // import cloudinary from "cloudinary";
 
 const app = express();
-config({path: "./config/config.env"})
+config()
 
 // cloudinary.config({
 //     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
